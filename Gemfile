@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
-
-
+group :test do
+gem 'capybara'
+end
+group :test ,:development do
+gem 'rspec-rails'
+end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
