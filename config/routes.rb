@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
  resources :users
   
-  # You can have the root of your site routed with "root"
+
+# You can have the root of your site routed with "root"
   # root 'welcome#index'
 
   # Example of regular route:
