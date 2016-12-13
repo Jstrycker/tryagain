@@ -7,7 +7,9 @@ describe User do
 
     it { should respond_to(:name) }
     it { should respond_to(:email) }
-    it { should respond_to(:password) }
+    it { should respond_to(:password) }  # virtual attribute
+    it { should respond_to(:password_digest) }
+    it { should respond_to(:authenticate) }
 
     it { should be_valid }
 
@@ -36,15 +38,15 @@ describe User do
     end
 
     describe "empty password" do
-	before { user.password = '' }
+	let (:unsaved_user) { FactoryGirl.build(:user, password: '') }
 
-	it { should_not be_valid }
+	specify { expect(unsaved_user).not_to be_valid }
     end
 
     describe "blank password" do
-	before { user.password = ' ' }
+	let (:unsaved_user) { FactoryGirl.build(:user, password: ' ') }
 
-	it { should_not be_valid }
+	specify { expect(unsaved_user).not_to be_valid }
     end
 
     describe "long name" do
