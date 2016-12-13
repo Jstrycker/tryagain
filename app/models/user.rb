@@ -3,9 +3,8 @@ class User < ActiveRecord::Base
     has_many :user_rides
     has_many :rides, through: :user_rides
 
-    has_one :church
-# if the church profile manager doesn't attend that church, use:
-#    has_one :church_managed, class_name: 'Church', foreign_key: 'user_id'
+    belongs_to :church, inverse_of: :users
+    has_one :church_managed, inverse_of: :user, class_name: 'Church', foreign_key: 'user_id'
 
     has_secure_password
 
@@ -13,8 +12,14 @@ class User < ActiveRecord::Base
     validates :name, length:{minimum: 2}
     validates :name, length:{maximum: 30}
     validates :name, uniqueness: true, on: :create
-    validates :email, presence: true
-    validates :email, uniqueness: true, on: :create	
+    validates :email,
+	presence: true,
+	format: { with: /\A         # begin of input
+			 [-\w+.]+   # dash, wordy, plus, or dot characters
+			 @          # required at sign
+			 [-a-z\d.]+ # dash, letter, digit, or dot chars
+			 \z         # end of input
+		        /xi }
     validates :password, presence: true
     validates :password, length:{minimum: 5}
 end

@@ -12,4 +12,6 @@
     <%= f.password_field :password %>
 
     <%= f.submit 'Submit' %>
+
+<%= render 'shared/errors', object: @user %>
 <% end %>
