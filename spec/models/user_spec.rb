@@ -12,6 +12,7 @@ describe User do
     it { should respond_to(:authenticate) }
 
     it { should be_valid }
+    it { should_not be_admin }
 
     describe "empty name" do
 	before { user.name = '' }
@@ -81,4 +82,9 @@ describe User do
 
 
 
+    describe "administrator account" do
+	let (:admin) { FactoryGirl.create(:admin) }
+
+	specify { expect(admin).to be_admin }
+    end
 end
