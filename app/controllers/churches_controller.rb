@@ -4,6 +4,9 @@ class ChurchesController < ApplicationController
 	@church.services.build
     end
 
+def index
+ @churches =Church.all
+end
     def create
 	@church = Church.new(church_params)
 	@church.user = current_user
@@ -17,6 +20,25 @@ class ChurchesController < ApplicationController
     end
 
     private
+def edit
+	@church =Church.find(params[:id])
+end
+
+def show
+	@church=Church.find(params[:id])
+end
+
+
+def update
+@church =church.find(params[:id])
+if @church.update_attributes(church_params)
+flash[:success]="works";
+redirect_to "/church/1"
+else
+flash[:danger]="fails"
+end
+end
+
 
     def church_params
 	params.require(:church).permit(:name,
@@ -27,4 +49,9 @@ class ChurchesController < ApplicationController
 							      :finish_time,
 							      :location ] )
     end
+
+
+
+
+
 end

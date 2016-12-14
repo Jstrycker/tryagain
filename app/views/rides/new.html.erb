@@ -1,0 +1,26 @@
+<h1>new rides</h1>
+
+<%= form_for @ride do |f| %>
+
+    <%= f.label :date %>
+    <%= f.text_field :date %>
+
+    <%= f.label :leave_time %>
+    <%= f.text_field :leave_time %>
+  
+    <%= f.label :return_time %>
+    <%= f.text_field :return_time %>
+
+   <%= f.label :number_of_seats %>
+    <%= f.text_field :number_of_seats %>
+
+   <%= f.label :location %>
+    <%= f.text_field :meeting_location %>
+
+    <%= f.label :vehicle %>
+    <%= f.text_field :vehicle %>
+
+<%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+    <%= f.submit 'Submit' %>
+
+<% end %>

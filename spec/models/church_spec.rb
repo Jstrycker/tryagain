@@ -29,4 +29,24 @@ describe Church do
 
 	it { should_not be_valid }
     end
+
+    describe "empty website" do
+	before { church.website = '' }
+
+	it { should_not be_valid }
+    end
+
+    describe "blank website" do
+	before { church.website = ' ' }
+
+	it { should_not be_valid }
+    end
+
+
+
+
 end
+
+
+
+

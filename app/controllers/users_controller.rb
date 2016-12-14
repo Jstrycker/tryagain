@@ -6,7 +6,10 @@ class UsersController < ApplicationController
     def index
 	@users = User.all
     end
-
+	def destroy
+	@user=User.find(params[:d])
+	@user.destroy
+	end
     def new
 	@user = User.new
     end
@@ -28,8 +31,7 @@ class UsersController < ApplicationController
 	flash[:danger] = "Unable to find user"
 	redirect_to users_path
     end
-=begin
-<<<<<<< HEAD
+
 def edit
 	@user =User.find(params[:id])
 end
@@ -45,7 +47,6 @@ end
 end
 
 
-=end
     def edit
     end
 
