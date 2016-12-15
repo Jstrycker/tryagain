@@ -2,13 +2,13 @@
 <h1>Profile Page for <%= @user.name %>'s ride<h1>
 <p>Name: <%=link_to @user.name, @user%></p>
 <p>Email: <%= @user.email %></p>
-<p> Date:    <%= @ride.date %></p>
-    <p> Departs at:<%= @ride.leave_time %></p>
-    <p> Returns at <%= @ride.return_time %></p>
+<p> Date: </p><p>   <%= @ride.date %></p>
+    <p> Departs at:</p><p>  <%= @ride.leave_time %></p>
+    <p> Returns at </p><p>  <%= @ride.return_time %></p>
 
 
-   <p>Total seats <%= @ride.number_of_seats %></p>
-   <p>Seats availible <%= @ride.seats_available %></p>
+   <p>Total seats </p><p>  <%= @ride.number_of_seats %></p>
+   <p>Seats availible </p><p>  <%= @ride.seats_available %></p>
  <p>  <%= @ride.meeting_location %></p>
    <p> <%= @ride.vehicle %></p>
 <%=button_to "Claim ride", method: "clain"%>
