@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
     validates :name, presence: true
     validates :name, length:{minimum: 2}
-    validates :name, length:{maximum: 30}
+    validates :name, length:{maximum: 50}
     validates :name, uniqueness: true, on: :create
     validates :email,
 	presence: true,

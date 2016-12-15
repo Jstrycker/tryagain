@@ -1,14 +1,18 @@
 class UsersController < ApplicationController
-    before_action :ensure_user_logged_in, only: [:edit, :update, :destroy]
-    before_action :ensure_correct_user, only: [:edit]
+    before_action :ensure_user_logged_in, only: [:edit,:update]
+    before_action :ensure_correct_user, only: [:edit,:update]
     before_action :ensure_admin, only: [:destroy]
 
     def index
 	@users = User.all
     end
 	def destroy
-	@user=User.find(params[:d])
+	@user=User.find(params[:id])
 	@user.destroy
+	flash[:success] = "User disintegrated"
+	redirect_to users_path
+
+
 	end
     def new
 	@user = User.new
@@ -45,10 +49,6 @@ else
 flash[:danger]="fails"
 end
 end
-
-
-    def edit
-    end
 
     private
 

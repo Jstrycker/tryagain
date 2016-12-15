@@ -1,0 +1,22 @@
+
+<li>
+<p>   <%= church.name %></p>
+<p>Official website:</p> <%= link_to "official web site", church.web_site %>
+<p><%=  church.picture %></p>
+<p><%= church.description%></p>
+
+<%=link_to church.name, church %> 
+		<p>Services</p>
+
+	<% church.services.all do |builder| %>
+
+<p>Start time <%= builder.start_time %></p>
+<p>Finish time <%= builder.finish_time %></p>
+
+<p>day <%= buider.day_of_week %></p>
+<p>Location <%= builder.location %></p>
+<% end %>
+
+
+    <%= link_to 'delete', church, method: :delete %>
+</li>

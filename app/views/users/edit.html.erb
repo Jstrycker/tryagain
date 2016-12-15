@@ -7,11 +7,12 @@
 
     <%= f.label :email %>
     <%= f.text_field :email %>
-
-    <%= f.label :password %>
+     <%= f.label :password %>
     <%= f.password_field :password %>
+   <%= f.label :Confirmation %>
+    <%= f.password_field :Confirmation %>
 
-    <%= f.submit 'Submit' %>
+    <%= f.submit 'Update user profile' %>
 
 <%= render 'shared/errors', object: @user %>
 <% end %>

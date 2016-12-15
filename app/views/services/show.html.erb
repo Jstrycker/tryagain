@@ -1,6 +1,10 @@
-<h1>new rides</h1>
+<p>Start time <%= @service.start_time %></p>
+<p>Finish time <%= @service.finish_time %></p>
 
-<%= form_for @ride do |f| %>
+<p>day <%= @service.day_of_week %></p>
+<p>Location <%= @service.location %></p>
+
+<%= form_for @ride, action: :create do |f| %>
 
     <%= f.label :date %>
     <%= f.text_field :date %>
@@ -18,17 +22,14 @@
     <%= f.text_field :seats_available %>
 
 
-
-   <%= f.label :location %>
+   <%= f.label :meeting_location, "Meeting location" %>
     <%= f.text_field :meeting_location %>
 
     <%= f.label :vehicle %>
     <%= f.text_field :vehicle %>
-    <%= f.label :service %>
-    <%= f.text_field :service %>
-
-<%=hidden_field_tag 'user_id', current_user %>
 <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
-    <%= f.submit 'Submit' %>
+    
+
+<%= f.submit 'Offer ride' %>
 
 <% end %>

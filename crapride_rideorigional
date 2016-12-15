@@ -1,5 +1,4 @@
 <li>
-<% @user=User.find(params[@ride.scope_attributes.user_id]) %>
 `<h1>Profile Page for <%= @user.name %>'s ride<h1>
 <p>Name: <%=@user.name%></p>
 <p>Email: <%= @user.email %></p>
@@ -9,7 +8,17 @@
 
    <p> <%= @ride.number_of_seats %></p>
 
- <p>  <%= @ride.meeting_location %></p>
+ <p>  <%= @ride.location %></p>
    <p> <%= @ride.vehicle %></p>
 </li>
-
+<!--
+<li>
+    <ul>
+	<li>From: <%=# , ride.user %></li>
+	<li>To: <%=# ride.service.church.name %></li>
+	<li>Service: <%=# ride.service.location %> @ <%=# ride.service.start_time %></li>
+	<li>Date: <%=# ride.date %>
+	<li><%=# link_to 'Ride details', ride %></li>
+    </ul>
+</li>
+-->

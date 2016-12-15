@@ -1,3 +1,46 @@
 <h1>Profile Page for <%= @church.name %></h1>
+<p>   <%= @church.name %></p>
+<p>Official website: <%= @church.web_site %><p>
+<p><%=  @church.picture %><p>
+<p><%= @church.description%> </p>
+	<%= link_to "official web site", @church.web_site %>
 
-<p>Website: <%= @church.website %></p>
+	<p>Services<p>
+<div id= services>
+<ol>
+	<% @church.services.all do |builder| %>
+<li>
+<p>Start time <%= builder.start_time %></p>
+<p>Finish time <%= builder.finish_time %></p>
+
+<p>day <%= buider.day_of_week %></p>
+<p>Location <%= builder.location %></p>
+</li>
+<%end%>
+</ol>
+</div>
+
+<p> Current Attendees</p>
+<div id= attendees>
+
+<ol>
+<%@users.all do |l|%>
+<li>
+<%=link to l.name, l%>
+</li>
+<%end%>
+</ol>
+</div>
+<%= link_to 'delete', @church, method: :delete %>
+
+<% if @users.include? current_user %>
+ <p>You attend this church</p>
+<% else %>
+
+<%=button_to "Attend this church", action: "attend"%>
+<% end %>
+<% if @church.user==current_user %>
+ <p>You manage</p>
+<%else%>
+<p>Church managed by<%= @church.user.name%></p>
+<% end %>

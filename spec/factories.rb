@@ -14,6 +14,7 @@ FactoryGirl.define do
 	transient { num_services 1 }
 	sequence(:name) { |i| "calvinist#{i}" }
         picture "nothing"
+	user_id 1
         web_site   "web_site"
         description    "description"
 	after(:create) do |church, evaluator|
@@ -25,6 +26,12 @@ FactoryGirl.define do
 	church
 	transient { num_rides 1 }
 
+        church_id 1
+        day_of_week 1
+        start_time "10:00:00"
+        finish_time "11:00:00"
+        location	"Your Bed"
+   
 	after(:create) do |service, evaluator|
 	    create_list(:ride, evaluator.num_rides, service: service)
 	end
@@ -33,9 +40,10 @@ FactoryGirl.define do
     factory :ride do
 	transient { num_riders 1 }
 	service_id 1
+	user_id 1
     	date     "1/1/2018"
-    	leave_time     "10:00 AM"
-    	return_time    "7:00 PM"
+    	leave_time     "10:00:00"
+    	return_time    "11:00:00"
     	number_of_seats 6
         seats_available 5
         meeting_location "parking lot"
@@ -46,5 +54,7 @@ FactoryGirl.define do
     end
 
     factory :user_ride do
+    user_id 1
+    ride_id 1
     end
 end

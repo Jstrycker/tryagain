@@ -1,0 +1,9 @@
+<p>List of services</p>
+<p><%=pluralize(@services.count,"services") %> </p>
+<ol>
+<% @services.all.each do |service|%>
+<li>
+<p><%=Church.find(service.church_id).name%><p>
+</li>
+<%end%>
+</ol>

@@ -13,12 +13,18 @@
     <%= f.label :return_time %>
     <%= f.text_field :return_time %>
 
-   <%= f.label :number_of_seats %>
+   <%= f.label :number_of_seats,"Number of seats" %>
     <%= f.text_field :number_of_seats %>
 
-   <%= f.label :location %>
-    <%= f.text_field :meeting_location %>
+ 
+   <%= f.label :seats_available, "Seats available" %>
+    <%= f.text_field :seats_available %>
 
+   <%= f.label :meeting_location, "Meeting location" %>
+
+   <%= f.text_field :meeting_location %>
+
+<%=hidden_field_tag 'user_id', current_user %>
     <%= f.label :vehicle %>
     <%= f.text_field :vehicle %>
     <%= f.submit 'Submit' %>
